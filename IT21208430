@@ -1,0 +1,70 @@
+//Card.h file
+
+#include "Payment.h"
+
+//Declaration of card class
+
+class Card: public Payment
+{
+	private:
+		int card_Number;
+		char card_type[10];
+		char expdate[5];
+
+	public:
+		Card();
+		Card(int card_no, char ctype[], char exdate[]);
+		void card_authorize();
+};
+
+
+
+//Card.cpp file
+
+#include "Card.h"
+#include <cstring>
+//card class
+
+Card::Card(){}
+Card::Card(int card_no, char ctype[], char exdate[])
+{
+	card_Number = card_no;
+	strcpy(card_type,ctype);
+	strcpy(expdate, exdate);
+}
+ void Card:: card_authorize(){}
+ 
+ 
+ //Paypal.h file
+
+#include "Payment.h"
+//Declaration of Paypal class
+
+class Paypal: public Payment
+{
+	private:
+		int paypalID;
+		char paypalName[50];
+
+	public:
+		Paypal();
+		Paypal(int payID, char pname[]);
+		void paypal_Authorize();
+};
+
+
+
+ //Paypal.cpp file
+ 
+#include "Paypal.h"
+#include <cstring>
+//Paypal class
+
+ Paypal::Paypal(){}
+ Paypal::Paypal(int payID, char pname[])
+ {
+	 paypalID = payID;
+	 strcpy(paypalName, pname);
+ }
+ void Paypal:: paypal_Authorize(){}
+ 
